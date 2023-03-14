@@ -6,7 +6,12 @@ const mongoose = require("mongoose");
 
 //if I need to return a name and image use .select('name image') -_id remove id from data return
 router.get("/", async (req, res) => {
-  const products = await productModel.find().populate("category");
+  let filter = {};
+
+  if (req.query.category) {
+    filter = { category: req.query.category.split(",") };
+  }
+  const products = await productModel.find(filter).populate("category");
 
   if (!products) {
     res.status(500).json({ success: false });
@@ -110,8 +115,10 @@ router.get("/get/count", async (req, res) => {
   res.send({ productCount: productCount });
 });
 
-router.get("/get/feature", async (req, res) => {
-  const products = await productModel.find({isFeatured:true});
+router.get("/get/featured/:count", async (req, res) => {
+  const count = req.params.count ? req.params.count : 0;
+
+  const products = await productModel.find({ isFeatured: true }).limit(+count);
   if (!products) {
     res.status(500).json({ success: false });
   }
