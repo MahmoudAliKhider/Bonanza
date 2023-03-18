@@ -3,13 +3,27 @@ const orderModel = require("../models/order");
 const orderItemModel = require("../models/order-item");
 
 router.get("/", async (req, res) => {
-  const orderList = await orderModel.find();
+  const orderList = await orderModel.find().populate('user','name');
 
   if (!orderList) {
     res.status(500).json({ success: false });
   }
   res.send(orderList);
 });
+
+router.get(`/:id`, async (req, res) =>{
+  const order = await orderModel.findById(req.params.id)
+  .populate('user', 'name')
+  .populate({ 
+      path: 'orderItems', populate: {
+          path : 'product', populate: 'category'} 
+      });
+
+  if(!order) {
+      res.status(500).json({success: false})
+  } 
+  res.send(order);
+})
 
 router.post("/", async (req, res) => {
   const orderItemId = Promise.all(
