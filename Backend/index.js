@@ -16,6 +16,7 @@ app.options("*", cors());
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(authJwt());
+app.use('/public/upload',express.static(__dirname + '/public/upload'))
 app.use(errorHandler)
 
 api = process.env.API;

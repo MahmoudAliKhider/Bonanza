@@ -104,7 +104,7 @@ router.put("/:id", uploadOptions.single('image'), async (req, res) => {
 
   if (file) {
       const fileName = file.filename;
-      const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
+      const basePath = `${req.protocol}://${req.get('host')}/public/upload/`;
       imagepath = `${basePath}${fileName}`;
   } else {
       imagepath = product.image;
@@ -179,7 +179,7 @@ router.put(
     }
     const files = req.files;
     let imagesPaths = [];
-    const basePath = `${req.protocol}://${req.get("host")}/public/uploads/`;
+    const basePath = `${req.protocol}://${req.get("host")}/public/upload/`;
 
     if (files) {
       files.map((file) => {
