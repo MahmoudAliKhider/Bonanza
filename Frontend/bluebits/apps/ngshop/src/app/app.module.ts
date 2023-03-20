@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
     NxWelcomeComponent,
     HomePageComponent,
     ProductListComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

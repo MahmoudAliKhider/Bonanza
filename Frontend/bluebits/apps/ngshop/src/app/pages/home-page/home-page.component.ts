@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'bluebits-home-page',
+  selector: 'ngshop-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent {}
+export class HomePageComponent  {
+  constructor(){}
+
+}
