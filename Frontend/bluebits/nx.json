@@ -56,5 +56,33 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
+  },
+  "projects": {
+    "ngshop": {
+      "tags": []
+    },
+    "ngshop-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ngshop"]
+    },
+    "admin": {
+      "tags": []
+    },
+    "admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin"]
+    },
+    "ui": {
+      "tags": []
+    },
+    "products": {
+      "tags": []
+    },
+    "users": {
+      "tags": []
+    },
+    "orders": {
+      "tags": []
+    }
   }
 }
